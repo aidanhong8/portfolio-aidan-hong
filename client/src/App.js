@@ -33,7 +33,7 @@ function App() {
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li><a className="dropdown-item bar" href="https://linkedin.com/in/aidanhong8">LinkedIn</a></li>
                   <li><a className="dropdown-item bar" href="https://fencingtracker.com/p/100326448/Aidan-Hong">FencingTracker</a></li>
-                  <li><a className="dropdown-item bar" href="https://github.com/GSWForever8">GitHub</a></li>
+                  <li><a className="dropdown-item bar" href="https://github.com/aidanhong8">GitHub</a></li>
                 </ul>
               </li>
               <li className="nav-item">
