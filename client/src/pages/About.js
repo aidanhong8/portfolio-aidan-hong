@@ -49,7 +49,7 @@ export default function About(){
             <h1>Certifications</h1>
             <ul>
                 <li>GFACT Certification from SANS</li>
-                <li>E25 Sabre Rating</li>
+                <li>D26 Sabre Rating</li>
                 <li>L1 Rated Sabre Referee</li>
                 <li>P Rated Epee Referee</li>
                 <li>P Rated Foil Referee</li>
