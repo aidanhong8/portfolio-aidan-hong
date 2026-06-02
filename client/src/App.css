@@ -13,7 +13,9 @@
     max-width: 100%;
     height: auto;
 }
-
+img{
+  border-radius:15px;
+}
 .App-logo {
   height: 60px;
   pointer-events: none;
@@ -201,7 +203,7 @@
   font-size: xx-large;
   width: 100%;
   size: 200%;
-  animation: fadeIn 2s ease-in forwards;
+  animation: fadeIn 1s ease-in forwards;
 }
 
 .text {
@@ -235,6 +237,7 @@
 .contentwrap {
   flex: 1;
   padding-bottom: 5.5rem;
+  padding-top: 1.5rem;
   z-index: 0;
 }
 

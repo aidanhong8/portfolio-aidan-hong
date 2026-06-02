@@ -54,7 +54,7 @@ function App() {
         </div>
       </div>
       <footer className="footer">
-        <p>Aidan Hong © 2025</p>
+        <p>Aidan Hong © 2026</p>
       </footer>
     </>
   );
