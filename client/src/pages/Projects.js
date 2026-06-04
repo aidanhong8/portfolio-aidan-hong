@@ -16,6 +16,7 @@ export default function Projects(){
                 <h2>EasyCross</h2>
                 <p>Helping elders cross roads safely</p>
                 <p>For this project, we used an ESP32S3 along with a classification model to help ensure the elderly do not veer off the crosswalk. By using temporal smoothing to account for false positives, we were able to make a model that accurately predicts if a person is on the crosswalk or not.</p>
+                <a href="https://github.com/boomty/CameraDetectionforTraffic" target="_blank">Link to GitHub Repo</a>
                 <h3>Skills Used</h3>
                 <li>C++</li>
                 <li>Clsasification models</li>
