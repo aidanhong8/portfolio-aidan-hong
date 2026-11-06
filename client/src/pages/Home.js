@@ -8,7 +8,7 @@ export default function Home(){
     <div class="contentwrap">
         <div class="text-fade-in">
             <h1>Hey there!</h1>
-            <h3>My name is Aidan Hong. I am a freshman at Georgia Tech</h3>
+            <h3>My name is Aidan Hong. I am a sophomore at Georgia Tech</h3>
             <p></p>
         </div>
         <div class="quicklinks">
