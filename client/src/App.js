@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import logo from './pages/logo.png';
-import { BrowserRouter as Router, Link, Route, Routes } from "react-router-dom";
+import { Link, NavLink, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
@@ -10,40 +11,27 @@ import './App.css';
 function App() {
   return (
     <>
-      <nav className="navbar navbar-expand-lg nav">
+      <Navbar expand="lg" variant="dark" className="portfolio-nav">
         <div className="container-fluid">
-          <Link className="navbar-brand" to="/">
-            <img src={logo} alt="Logo" className="d-inline-block align-text-top App-logo" />
-          </Link>
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav">
-              <li className="nav-item">
-                <Link className="nav-link bar" to="/about">About Me</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link bar" to="/projects">Projects</Link>
-              </li>
-              <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle bar" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Quick Links
-                </a>
-                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a className="dropdown-item bar" href="https://linkedin.com/in/aidanhong8">LinkedIn</a></li>
-                  <li><a className="dropdown-item bar" href="https://fencingtracker.com/p/100326448/Aidan-Hong">FencingTracker</a></li>
-                  <li><a className="dropdown-item bar" href="https://github.com/aidanhong8">GitHub</a></li>
-                </ul>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link bar" to="/contact">Contact Me</Link>
-              </li>
-            </ul>
-          </div>
+          <Navbar.Brand as={Link} to="/">
+            <img src={logo} alt="Aidan Hong home" className="App-logo" />
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="navbarNav" />
+          <Navbar.Collapse id="navbarNav">
+            <Nav>
+              <Nav.Link as={NavLink} to="/about">About Me</Nav.Link>
+              <Nav.Link as={NavLink} to="/projects">Projects</Nav.Link>
+              <NavDropdown title="Quick Links" id="navbarDropdown">
+                <NavDropdown.Item href="https://linkedin.com/in/aidanhong8">LinkedIn</NavDropdown.Item>
+                <NavDropdown.Item href="https://fencingtracker.com/p/100326448/Aidan-Hong">FencingTracker</NavDropdown.Item>
+                <NavDropdown.Item href="https://github.com/aidanhong8">GitHub</NavDropdown.Item>
+              </NavDropdown>
+              <Nav.Link as={NavLink} to="/contact">Contact Me</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
         </div>
-      </nav>
-      <div className="container">
+      </Navbar>
+      <main className="container">
         <div className="contentwrap">
           <Routes>
             <Route path="/" element={<Home />} />
@@ -52,7 +40,7 @@ function App() {
             <Route path="/projects" element={<Projects />} />
           </Routes>
         </div>
-      </div>
+      </main>
       <footer className="footer">
         <p>Aidan Hong © 2026</p>
       </footer>

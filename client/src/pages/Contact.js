@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
-import axios from 'axios';
 
 const Contact = () => {
   const [state, setState] = useState({
@@ -19,45 +18,48 @@ const Contact = () => {
     });
   };
 
-  const[result, setResult]=useState(null);
+  const [opened, setOpened] = useState(false);
   const sendEmail = event => {
     event.preventDefault();
-    axios
-     .post('https://portfolio-aidan-hong-1.onrender.com/send', { ...state })
-     .then(response => {
-       setResult(response.data);
-       setState({ name: '', email: '', subject: '', message: '' });
-     })
-     .catch(() => {
-       setResult({ success: false, message: 'Something went wrong. Try again later'});
-   });
-  }
+    const body = `${state.message}\n\nFrom: ${state.name}\nReply to: ${state.email}`;
+    window.location.href = `mailto:ahong97@gatech.edu?subject=${encodeURIComponent(state.subject)}&body=${encodeURIComponent(body)}`;
+    setOpened(true);
+  };
 
   return (
-    <div class="content">
-      <h1>Contact me with this form!</h1>
-      <form onSubmit={sendEmail}>
-        <Form.Group controlId="name">
+    <div className="content contact-page">
+      <header className="page-header">
+      <p className="projects-eyebrow">LET’S CONNECT</p>
+      <h1>Contact Me</h1>
+      <p>Get in touch at <a href="mailto:ahong97@gatech.edu">ahong97@gatech.edu</a>, or fill out the form to prepare an email.</p>
+      <p className="contact-note">This opens your email app. Review your message and send it there.</p>
+      </header>
+      <form className="surface-card" onSubmit={sendEmail}>
+        <Form.Group className="mb-3" controlId="name">
           <Form.Label>Name: </Form.Label>
           <Form.Control
             type="text"
             name="name"
+            autoComplete="name"
             value={state.name}
             placeholder="Name"
             onChange={onInputChange}
+            required
           />
         </Form.Group>
-        <Form.Group controlId="email">
+        <Form.Group className="mb-3" controlId="email">
           <Form.Label>Email: </Form.Label>
           <Form.Control
-            type="text"
+            type="email"
             name="email"
+            autoComplete="email"
             value={state.email}
             placeholder="Email"
             onChange={onInputChange}
+            required
           />
         </Form.Group>
-        <Form.Group controlId="subject">
+        <Form.Group className="mb-3" controlId="subject">
           <Form.Label>Subject: </Form.Label>
           <Form.Control
             type="text"
@@ -65,27 +67,30 @@ const Contact = () => {
             value={state.subject}
             placeholder="Subject"
             onChange={onInputChange}
+            required
           />
         </Form.Group>
-        <Form.Group controlId="message">
+        <Form.Group className="mb-3" controlId="message">
           <Form.Label>Message: </Form.Label>
           <Form.Control
             as="textarea"
             name="message"
             value={state.message}
-            rows="3"
+            rows={5}
             placeholder="Message"
             onChange={onInputChange}
+            required
           />
         </Form.Group>
         <Button variant="primary" type="submit">
-          Submit
+          Open Email App
         </Button>
-        {result && (
-        <p className={`${result.success ? 'success' : 'error'}`}>
-          {result.message}
-        </p>
-      )}
+        {opened && (
+          <p className="contact-note mt-3" role="status">
+            Your email draft is ready to open. Send it from your email app. If nothing opens,
+            you can copy ahong97@gatech.edu into your preferred email service. Your message stays here.
+          </p>
+        )}
       </form>
     </div>
   );
