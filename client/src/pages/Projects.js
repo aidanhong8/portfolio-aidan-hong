@@ -10,7 +10,23 @@ import cross from "./easycross.png";
 import nexus from "./fbla-nexus.png";
 import timbre from "./timbre.png";
 
+// Newest completion first; older undated projects retain their repository order.
 const projects = [
+  {
+    "title": "Timbre",
+    "role": "HackGT 13 · September 2026",
+    "paragraphs": [
+      "An accessible shopping demo with voice-based payment approval, designed for people with dysarthria.",
+      "GPT-4o turns spoken or typed requests into a shopping list. At checkout, users verify their identity with repeatable sounds rather than relying on accurate speech transcription. SpeechBrain’s ECAPA-TDNN model compares voice recordings, with enrollment spread across alternating rounds to capture natural variation.",
+      "Built with React, FastAPI, and SQLite. The demo uses Stripe test mode and the Visa CyberSource sandbox for payments."
+    ],
+    "url": "https://devpost.com/software/timbre-co1ig7",
+    "linkLabel": "View on Devpost",
+    "skills": ["React", "FastAPI", "SQLite", "SpeechBrain", "GPT-4o", "Stripe"],
+    "image": timbre,
+    "alt": "Timbre shopping assistant suggesting ingredients and a cart total",
+    "video": "https://www.youtube.com/embed/GJmXV24xdeM?start=77"
+  },
   {
     "title": "EasyCross",
     "role": "AI/ML Lead · January–May 2026",
@@ -25,6 +41,18 @@ const projects = [
     ],
     "image": cross,
     "alt": "EasyCross crosswalk detection",
+    "video": null
+  },
+  {
+    "title": "FBLA Nexus",
+    "role": "iOS App Developer · January–February 2026",
+    "paragraphs": [
+      "An iOS app for chapter content and event sign-ups. California FBLA State Leadership Conference finalist in Mobile Application Development.",
+      "Designed a relational SQLite schema to separate chapter-specific content. Built role-based tools for creating events, managing links, and promoting member roles."
+    ],
+    "skills": ["Swift", "SQLite", "iOS", "Role-based access"],
+    "image": nexus,
+    "alt": "FBLA Nexus chapter news and Instagram feed",
     "video": null
   },
   {
@@ -43,33 +71,6 @@ const projects = [
     "image": edd,
     "alt": "HalloweenTracker hardware",
     "video": null
-  },
-  {
-    "title": "FBLA Nexus",
-    "role": "iOS App Developer · January–February 2026",
-    "paragraphs": [
-      "An iOS app for chapter content and event sign-ups. California FBLA State Leadership Conference finalist in Mobile Application Development.",
-      "Designed a relational SQLite schema to separate chapter-specific content. Built role-based tools for creating events, managing links, and promoting member roles."
-    ],
-    "skills": ["Swift", "SQLite", "iOS", "Role-based access"],
-    "image": nexus,
-    "alt": "FBLA Nexus chapter news and Instagram feed",
-    "video": null
-  },
-  {
-    "title": "Timbre",
-    "role": "HackGT 13 · September 2026",
-    "paragraphs": [
-      "An accessible shopping demo with voice-based payment approval, designed for people with dysarthria.",
-      "GPT-4o turns spoken or typed requests into a shopping list. At checkout, users verify their identity with repeatable sounds rather than relying on accurate speech transcription. SpeechBrain’s ECAPA-TDNN model compares voice recordings, with enrollment spread across alternating rounds to capture natural variation.",
-      "Built with React, FastAPI, and SQLite. The demo uses Stripe test mode and the Visa CyberSource sandbox for payments."
-    ],
-    "url": "https://devpost.com/software/timbre-co1ig7",
-    "linkLabel": "View on Devpost",
-    "skills": ["React", "FastAPI", "SQLite", "SpeechBrain", "GPT-4o", "Stripe"],
-    "image": timbre,
-    "alt": "Timbre shopping assistant suggesting ingredients and a cart total",
-    "video": "https://www.youtube.com/embed/GJmXV24xdeM?start=77"
   },
   {
     "title": "DBHS FBLA Website 2.0",
@@ -230,7 +231,7 @@ export default function Projects() {
                             )}
                         </div>
                         <div className="project-copy">
-                            <p className="project-category">{index < 2 ? 'HARDWARE & SOFTWARE' : 'SOFTWARE & EXPERIENCES'}</p>
+                            <p className="project-category">{['EasyCross', 'HalloweenTracker'].includes(project.title) ? 'HARDWARE & SOFTWARE' : 'SOFTWARE & EXPERIENCES'}</p>
                             <h2 id={`project-${index}`}>{project.title}</h2>
                             {project.role && <p className="project-role">{project.role}</p>}
                             <p className="project-summary">{project.paragraphs[0]}</p>
